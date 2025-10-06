@@ -24,9 +24,33 @@ function hydrateHeader() {
   navServices.forEach((a) => {
     a.style.display = s ? "inline-block" : "none";
   });
+  const navLogin = document.querySelectorAll(".link-login");
+  navLogin.forEach((a) => {
+    // hide login links when logged in
+    a.style.display = s ? "none" : "inline-block";
+  });
   const who = document.getElementById("whoami");
-  if (who && s) {
-    who.textContent = `${s.name} · ${s.email}`;
+  const btnLogout = document.getElementById("btnLogout");
+  if (who) {
+    if (s) {
+      who.textContent = `${s.name}`;
+      who.style.display = "inline-block";
+    } else {
+      who.textContent = "";
+      who.style.display = "none";
+    }
+  }
+  if (btnLogout) {
+    btnLogout.style.display = s ? "inline-block" : "none";
+    // remove previous listeners to avoid duplicate bindings
+    btnLogout.onclick = null;
+    if (s) {
+      btnLogout.addEventListener("click", () => {
+        clearSession();
+        // after logout, refresh the page to update header
+        window.location.href = "./index.html";
+      });
+    }
   }
 }
 

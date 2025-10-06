@@ -41,12 +41,19 @@
           </div>
         </div>
         <nav class="nav">
-          <a href="./login.html">Login</a>
+          <a class="link-login" href="./login.html">Login</a>
           <a href="./register.html">Cadastrar cliente</a>
           <a class="link-services" style="display: none" href="./services.html"
             >Solicitar serviços</a
           >
-          <!-- inline moderado -->
+          <!-- Exibe quem está logado e botão de logout quando houver sessão -->
+          <div>
+            <span
+              id="whoami"
+              style="margin-left: 0.8rem; font-weight: 600"
+            ></span>
+            <a id="btnLogout" class="secondary"> Sair </a>
+          </div>
         </nav>
       </div>
     </header>
