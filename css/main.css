@@ -10,6 +10,7 @@
   --err: #e74c3c;
   --border: #262735;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --highlight: #09e17c;
 }
 
 * {
