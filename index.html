@@ -1,147 +1,241 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <title>NovaTI — Soluções em Tecnologia</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="./css/main.css" rel="stylesheet">
-  <style>
-    /* Estilo adicional (requisito: estilos no <style>) */
-    .slogan{font-size:1.05rem;color:var(--muted)}
-    .about-scroll{max-height:180px;overflow:auto;border:1px dashed var(--border);padding:.8rem;border-radius:.6rem}
-  </style>
-</head>
-<body>
-  <header class="header">
-    <div class="container bar">
-      <div class="brand">
-        <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo">
+  <head>
+    <meta charset="utf-8" />
+    <title>NovaTI — Soluções em Tecnologia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <style>
+      /* Estilo adicional (requisito: estilos no <style>) */
+      .slogan {
+        font-size: 1.05rem;
+        color: var(--muted);
+      }
+      .about-scroll {
+        max-height: 180px;
+        overflow: auto;
+        border: 1px dashed var(--border);
+        padding: 0.8rem;
+        border-radius: 0.6rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container bar">
+        <div class="brand">
+          <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo" />
+          <div>
+            <div class="title">
+              NovaTI <span class="badge">Empresa de Serviços de TI</span>
+            </div>
+            <div class="slogan">
+              <mark>Transformamos desafios em soluções digitais.</mark>
+            </div>
+          </div>
+        </div>
+        <nav class="nav">
+          <a href="./login.html">Login</a>
+          <a href="./register.html">Cadastrar cliente</a>
+          <a class="link-services" style="display: none" href="./services.html"
+            >Solicitar serviços</a
+          >
+          <!-- inline moderado -->
+        </nav>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="panel">
+          <h2>Quem somos</h2>
+          <div class="about-scroll">
+            <p>
+              A <strong>NovaTI</strong> nasceu em 2017 com a missão de
+              simplificar a tecnologia para empresas brasileiras. Atuamos com
+              <em>desenvolvimento web</em>, <em>cloud</em>, <em>dados</em> e
+              <em>segurança</em>.
+            </p>
+            <p>
+              Com times multidisciplinares, entregamos soluções modernas,
+              seguras e escaláveis, mantendo parceria de longo prazo com nossos
+              clientes.
+            </p>
+            <p>
+              Ao longo dos anos, investimos em <b>pessoas</b> e
+              <b>processos</b> para sustentar um crescimento sólido e ético.
+            </p>
+            <p>Conheça abaixo nossos serviços e equipe fundadora.</p>
+          </div>
+          <div class="kpis" aria-hidden="true">
+            <div class="kpi">
+              <div class="muted">Clientes ativos</div>
+              <div class="h2">120+</div>
+            </div>
+            <div class="kpi">
+              <div class="muted">Projetos/ano</div>
+              <div class="h2">80+</div>
+            </div>
+            <div class="kpi">
+              <div class="muted">Satisfação</div>
+              <div class="h2">98%</div>
+            </div>
+          </div>
+        </div>
+        <aside class="panel">
+          <h2>Vídeo institucional (1 min)</h2>
+          <!-- STREAMING YouTube: recorte de 60s com start/end -->
+          <div
+            style="
+              position: relative;
+              padding-bottom: 56.25%;
+              height: 0;
+              overflow: hidden;
+              border-radius: 0.8rem;
+              border: 1px solid var(--border);
+            "
+          >
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ?start=30&end=90&rel=0&modestbranding=1"
+              title="Institucional NovaTI"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+              style="
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+              "
+            ></iframe>
+          </div>
+        </aside>
+      </section>
+
+      <section class="panel">
+        <h2>Galeria</h2>
+        <div class="gallery" title="Rolagem automática para conteúdo longo">
+          <img
+            src="https://picsum.photos/seed/gal1/600/400"
+            alt="Escritório 1"
+          />
+          <img
+            src="https://picsum.photos/seed/gal2/600/400"
+            alt="Escritório 2"
+          />
+          <img src="https://picsum.photos/seed/gal3/600/400" alt="Equipe 1" />
+          <img src="https://picsum.photos/seed/gal4/600/400" alt="Equipe 2" />
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Principais serviços</h2>
+        <div class="services">
+          <div class="card">
+            <h3>Sites e Portais</h3>
+            <p>Front-end, CMS e otimização SEO.</p>
+            <div class="price">A partir de R$ 4.500</div>
+          </div>
+          <div class="card">
+            <h3>Migração para Cloud</h3>
+            <p>AWS, Azure e GCP, com automação.</p>
+            <div class="price">A partir de R$ 6.900</div>
+          </div>
+          <div class="card">
+            <h3>Data & Analytics</h3>
+            <p>ETL, dashboards e governança.</p>
+            <div class="price">A partir de R$ 7.900</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Fundadores</h2>
+        <!-- Uso de TABELA para layout organizado + conteúdo -->
+        <table id="founders-table" class="table">
+          <thead>
+            <tr>
+              <th>Cargo</th>
+              <th>Nome</th>
+              <th>Resumo (CV)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>CEO</td>
+              <td>Ana Souza</td>
+              <td>
+                15+ anos em gestão de produtos digitais. Ex-consultora em
+                transformação digital.
+              </td>
+            </tr>
+            <tr>
+              <td>CTO</td>
+              <td>Bruno Lima</td>
+              <td>
+                Arquiteto de software, cloud e segurança. Liderou migrações para
+                multi-cloud.
+              </td>
+            </tr>
+            <tr>
+              <td>COO</td>
+              <td>Carla Mendes</td>
+              <td>
+                Especialista em processos, ITIL e qualidade. Foco em
+                escalabilidade operacional.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container cols">
         <div>
-          <div class="title">NovaTI <span class="badge">Empresa de Serviços de TI</span></div>
-          <div class="slogan"><mark>Transformamos desafios em soluções digitais.</mark></div>
+          <h3>Contato</h3>
+          <ul>
+            <li>📞 Fixo: (81) 3222-3344</li>
+            <li>
+              📱 WhatsApp:
+              <a
+                href="https://wa.me/5581999990000"
+                target="_blank"
+                rel="noopener"
+                >+55 81 99999-0000</a
+              >
+            </li>
+            <li>
+              ✉️ E-mail:
+              <a href="mailto:contato@novati.com.br">contato@novati.com.br</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h3>Endereço</h3>
+          <address>Av. Boa Viagem, 1000 – Recife/PE – 51011-000</address>
+        </div>
+        <div>
+          <h3>Pagamento</h3>
+          <div class="pay-logos">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+              alt="Visa"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg"
+              alt="Mastercard"
+            />
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/4/46/Pix_Logo.png"
+              alt="PIX"
+            />
+          </div>
         </div>
       </div>
-      <nav class="nav">
-        <a href="./login.html">Login</a>
-        <a href="./register.html">Cadastrar cliente</a>
-        <a class="link-services" style="display:none" href="./services.html">Solicitar serviços</a> <!-- inline moderado -->
-      </nav>
-    </div>
-  </header>
+    </footer>
 
-  <main class="container">
-    <section class="hero">
-      <div class="panel">
-        <h2>Quem somos</h2>
-        <div class="about-scroll">
-          <p>A <strong>NovaTI</strong> nasceu em 2017 com a missão de simplificar a tecnologia para empresas brasileiras.
-          Atuamos com <em>desenvolvimento web</em>, <em>cloud</em>, <em>dados</em> e <em>segurança</em>.</p>
-          <p>Com times multidisciplinares, entregamos soluções modernas, seguras e escaláveis, mantendo parceria de longo prazo com nossos clientes.</p>
-          <p>Ao longo dos anos, investimos em <b>pessoas</b> e <b>processos</b> para sustentar um crescimento sólido e ético.</p>
-          <p>Conheça abaixo nossos serviços e equipe fundadora.</p>
-        </div>
-        <div class="kpis" aria-hidden="true">
-          <div class="kpi"><div class="muted">Clientes ativos</div><div class="h2">120+</div></div>
-          <div class="kpi"><div class="muted">Projetos/ano</div><div class="h2">80+</div></div>
-          <div class="kpi"><div class="muted">Satisfação</div><div class="h2">98%</div></div>
-        </div>
-      </div>
-      <aside class="panel">
-        <h2>Vídeo institucional (1 min)</h2>
-        <!-- STREAMING YouTube: recorte de 60s com start/end -->
-        <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:.8rem;border:1px solid var(--border)">
-          <iframe
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?start=30&end=90&rel=0&modestbranding=1"
-            title="Institucional NovaTI" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%"></iframe>
-        </div>
-      </aside>
-    </section>
-
-    <section class="panel">
-      <h2>Galeria</h2>
-      <div class="gallery" title="Rolagem automática para conteúdo longo">
-        <img src="https://picsum.photos/seed/gal1/600/400" alt="Escritório 1">
-        <img src="https://picsum.photos/seed/gal2/600/400" alt="Escritório 2">
-        <img src="https://picsum.photos/seed/gal3/600/400" alt="Equipe 1">
-        <img src="https://picsum.photos/seed/gal4/600/400" alt="Equipe 2">
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2>Principais serviços</h2>
-      <div class="services">
-        <div class="card">
-          <h3>Sites e Portais</h3>
-          <p>Front-end, CMS e otimização SEO.</p>
-          <div class="price">A partir de R$ 4.500</div>
-        </div>
-        <div class="card">
-          <h3>Migração para Cloud</h3>
-          <p>AWS, Azure e GCP, com automação.</p>
-          <div class="price">A partir de R$ 6.900</div>
-        </div>
-        <div class="card">
-          <h3>Data & Analytics</h3>
-          <p>ETL, dashboards e governança.</p>
-          <div class="price">A partir de R$ 7.900</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="panel">
-      <h2>Fundadores</h2>
-      <!-- Uso de TABELA para layout organizado + conteúdo -->
-      <table id="founders-table" class="table">
-        <thead>
-          <tr><th>Cargo</th><th>Nome</th><th>Resumo (CV)</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>CEO</td>
-            <td>Ana Souza</td>
-            <td>15+ anos em gestão de produtos digitais. Ex-consultora em transformação digital.</td>
-          </tr>
-          <tr>
-            <td>CTO</td>
-            <td>Bruno Lima</td>
-            <td>Arquiteto de software, cloud e segurança. Liderou migrações para multi-cloud.</td>
-          </tr>
-          <tr>
-            <td>COO</td>
-            <td>Carla Mendes</td>
-            <td>Especialista em processos, ITIL e qualidade. Foco em escalabilidade operacional.</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container cols">
-      <div>
-        <h3>Contato</h3>
-        <ul>
-          <li>📞 Fixo: (81) 3222-3344</li>
-          <li>📱 WhatsApp: <a href="https://wa.me/5581999990000" target="_blank" rel="noopener">+55 81 99999-0000</a></li>
-          <li>✉️ E-mail: <a href="mailto:contato@novati.com.br">contato@novati.com.br</a></li>
-        </ul>
-      </div>
-      <div>
-        <h3>Endereço</h3>
-        <address>Av. Boa Viagem, 1000 – Recife/PE – 51011-000</address>
-      </div>
-      <div>
-        <h3>Pagamento</h3>
-        <div class="pay-logos">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Mastercard_2019_logo.svg" alt="Mastercard">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Pix_Logo.png" alt="PIX">
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="./js/common.js"></script>
-</body>
+    <script src="./js/common.js"></script>
+  </body>
 </html>

@@ -1,78 +1,108 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <title>Login de clientes — NovaTI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="./css/main.css" rel="stylesheet">
-  <style>.page{max-width:520px;margin:2rem auto}</style>
-</head>
-<body>
-<header class="header">
-  <div class="container bar">
-    <div class="brand">
-      <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo">
-      <div class="title">NovaTI</div>
-    </div>
-    <nav class="nav">
-      <a href="./index.html">Início</a>
-      <a href="./register.html">Cadastrar</a>
-      <a href="./change-password.html">Trocar senha</a>
-      <a class="link-services" style="display:none" href="./services.html">Solicitar serviços</a>
-    </nav>
-  </div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <title>Login de clientes — NovaTI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <style>
+      .page {
+        max-width: 520px;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container bar">
+        <div class="brand">
+          <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo" />
+          <div class="title">NovaTI</div>
+        </div>
+        <nav class="nav">
+          <a href="./index.html">Início</a>
+          <a href="./register.html">Cadastrar</a>
+          <a href="./change-password.html">Trocar senha</a>
+          <a class="link-services" style="display: none" href="./services.html"
+            >Solicitar serviços</a
+          >
+        </nav>
+      </div>
+    </header>
 
-<main class="container page panel">
-  <h1>Login de clientes</h1>
-  <p><small class="help">Acesse com seu e-mail e senha.</small></p>
+    <main class="container page panel">
+      <h1>Login de clientes</h1>
+      <p><small class="help">Acesse com seu e-mail e senha.</small></p>
 
-  <form id="loginForm" novalidate>
-    <label for="loginEmail">E-mail</label>
-    <input id="loginEmail" type="email" placeholder="voce@exemplo.com" required>
+      <form id="loginForm" novalidate>
+        <label for="loginEmail">E-mail</label>
+        <input
+          id="loginEmail"
+          type="email"
+          placeholder="voce@exemplo.com"
+          required
+        />
 
-    <label for="loginPass">Senha</label>
-    <input id="loginPass" type="password" placeholder="Sua senha" required>
+        <label for="loginPass">Senha</label>
+        <input
+          id="loginPass"
+          type="password"
+          placeholder="Sua senha"
+          required
+        />
 
-    <div id="msg" class="bad" aria-live="polite" style="min-height:1.2rem;margin:.4rem 0;"></div>
+        <div
+          id="msg"
+          class="bad"
+          aria-live="polite"
+          style="min-height: 1.2rem; margin: 0.4rem 0"
+        ></div>
 
-    <div class="grid-2">
-      <button type="submit">Realizar Login</button>
-      <button type="button" class="secondary" id="btnClear">Limpar</button>
-    </div>
-  </form>
+        <div class="grid-2">
+          <button type="submit">Realizar Login</button>
+          <button type="button" class="secondary" id="btnClear">Limpar</button>
+        </div>
+      </form>
 
-  <hr>
-  <p>
-    Esqueceu? <a href="./change-password.html">Trocar senha</a> •
-    Não tem conta? <a href="./register.html">Cadastrar cliente</a>
-  </p>
-</main>
+      <hr />
+      <p>
+        Esqueceu? <a href="./change-password.html">Trocar senha</a> • Não tem
+        conta? <a href="./register.html">Cadastrar cliente</a>
+      </p>
+    </main>
 
-<script src="./js/common.js"></script>
-<script>
-  const form = document.getElementById('loginForm');
-  const emailEl = document.getElementById('loginEmail');
-  const passEl = document.getElementById('loginPass');
-  const msg = document.getElementById('msg');
+    <script src="./js/common.js"></script>
+    <script>
+      const form = document.getElementById("loginForm");
+      const emailEl = document.getElementById("loginEmail");
+      const passEl = document.getElementById("loginPass");
+      const msg = document.getElementById("msg");
 
-  document.getElementById('btnClear').addEventListener('click', ()=>{
-    form.reset(); emailEl.focus(); setAlert(msg,'','ok');
-  });
+      document.getElementById("btnClear").addEventListener("click", () => {
+        form.reset();
+        emailEl.focus();
+        setAlert(msg, "", "ok");
+      });
 
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    const email = emailEl.value.trim();
-    const pass = passEl.value;
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = emailEl.value.trim();
+        const pass = passEl.value;
 
-    if(!email){ return setAlert(msg,'Preencha o login (e-mail).','bad'); }
-    if(!EMAIL_RE.test(email)){ return setAlert(msg,'E-mail em formato inválido.','bad'); }
-    if(!pass){ return setAlert(msg,'Preencha a senha.','bad'); }
+        if (!email) {
+          return setAlert(msg, "Preencha o login (e-mail).", "bad");
+        }
+        if (!EMAIL_RE.test(email)) {
+          return setAlert(msg, "E-mail em formato inválido.", "bad");
+        }
+        if (!pass) {
+          return setAlert(msg, "Preencha a senha.", "bad");
+        }
 
-    alert('Validação realizada com sucesso');
-    setLoggedSession(email, email.split('@')[0]);
-    window.location.href = './index.html';
-  });
-</script>
-</body>
+        alert("Validação realizada com sucesso");
+        setLoggedSession(email, email.split("@")[0]);
+        window.location.href = "./index.html";
+      });
+    </script>
+  </body>
 </html>

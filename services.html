@@ -1,181 +1,218 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <title>Solicitação de serviços — NovaTI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="./css/main.css" rel="stylesheet">
-  <style>.page{max-width:1100px;margin:2rem auto}</style>
-</head>
-<body>
-<header class="header">
-  <div class="container bar">
-    <div class="brand">
-      <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo">
-      <div class="title">NovaTI</div>
-    </div>
-    <nav class="nav">
-      <a href="./index.html">Início</a>
-      <a href="./login.html">Login</a>
-      <a href="./register.html">Cadastrar</a>
-      <a class="link-services" style="display:none" href="./services.html">Solicitar serviços</a>
-    </nav>
-  </div>
-</header>
+  <head>
+    <meta charset="utf-8" />
+    <title>Solicitação de serviços — NovaTI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <style>
+      .page {
+        max-width: 1100px;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container bar">
+        <div class="brand">
+          <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo" />
+          <div class="title">NovaTI</div>
+        </div>
+        <nav class="nav">
+          <a href="./index.html">Início</a>
+          <a href="./login.html">Login</a>
+          <a href="./register.html">Cadastrar</a>
+          <a class="link-services" style="display: none" href="./services.html"
+            >Solicitar serviços</a
+          >
+        </nav>
+      </div>
+    </header>
 
-<main class="container page">
-  <section class="panel">
-    <h1>Solicitação de serviços</h1>
-    <p id="whoami" class="muted">Cliente não identificado</p>
-  </section>
+    <main class="container page">
+      <section class="panel">
+        <h1>Solicitação de serviços</h1>
+        <p id="whoami" class="muted">Cliente não identificado</p>
+      </section>
 
-  <section class="grid-2">
-    <div class="panel">
-      <h2>Minhas solicitações</h2>
-      <table class="table" id="tbl">
-        <thead>
-          <tr>
-            <th>Data do pedido</th>
-            <th># Solicitação</th>
-            <th>Serviço</th>
-            <th>Status</th>
-            <th>Preço (R$)</th>
-            <th>Previsto</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody id="tbody">
-          <!-- linhas fixas fictícias (exigência) -->
-        </tbody>
-      </table>
-    </div>
-
-    <div class="panel">
-      <h2>Nova solicitação</h2>
-      <form id="svcForm">
-        <label for="svc">Serviço de TI</label>
-        <select id="svc">
-          <option value="">Selecione…</option>
-          <option value="SITE">Site institucional</option>
-          <option value="CLOUD">Migração para Cloud</option>
-          <option value="DASH">Dashboard de dados</option>
-          <option value="SEC">Hardening de Segurança</option>
-        </select>
-
-        <div class="grid-2">
-          <div>
-            <label>Preço</label>
-            <div id="price" class="card">—</div>
-          </div>
-          <div>
-            <label>Prazo (dias)</label>
-            <div id="sla" class="card">—</div>
-          </div>
+      <section class="grid-2">
+        <div class="panel">
+          <h2>Minhas solicitações</h2>
+          <table class="table" id="tbl">
+            <thead>
+              <tr>
+                <th>Data do pedido</th>
+                <th># Solicitação</th>
+                <th>Serviço</th>
+                <th>Status</th>
+                <th>Preço (R$)</th>
+                <th>Previsto</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody id="tbody">
+              <!-- linhas fixas fictícias (exigência) -->
+            </tbody>
+          </table>
         </div>
 
-        <div class="grid-2">
-          <div>
-            <label>Data prevista</label>
-            <div id="eta" class="card">—</div>
-          </div>
-          <div>
-            <label>Status</label>
-            <div id="status" class="card">EM ELABORAÇÃO</div>
-          </div>
+        <div class="panel">
+          <h2>Nova solicitação</h2>
+          <form id="svcForm">
+            <label for="svc">Serviço de TI</label>
+            <select id="svc">
+              <option value="">Selecione…</option>
+              <option value="SITE">Site institucional</option>
+              <option value="CLOUD">Migração para Cloud</option>
+              <option value="DASH">Dashboard de dados</option>
+              <option value="SEC">Hardening de Segurança</option>
+            </select>
+
+            <div class="grid-2">
+              <div>
+                <label>Preço</label>
+                <div id="price" class="card">—</div>
+              </div>
+              <div>
+                <label>Prazo (dias)</label>
+                <div id="sla" class="card">—</div>
+              </div>
+            </div>
+
+            <div class="grid-2">
+              <div>
+                <label>Data prevista</label>
+                <div id="eta" class="card">—</div>
+              </div>
+              <div>
+                <label>Status</label>
+                <div id="status" class="card">EM ELABORAÇÃO</div>
+              </div>
+            </div>
+
+            <button type="submit">Incluir solicitação</button>
+          </form>
         </div>
+      </section>
+    </main>
 
-        <button type="submit">Incluir solicitação</button>
-      </form>
-    </div>
-  </section>
-</main>
+    <script src="./js/common.js"></script>
+    <script>
+      const SERVICES = {
+        SITE: { nome: "Site institucional", preco: 4500, sla: 7 },
+        CLOUD: { nome: "Migração para Cloud", preco: 6900, sla: 10 },
+        DASH: { nome: "Dashboard de dados", preco: 7900, sla: 12 },
+        SEC: { nome: "Hardening de Segurança", preco: 5200, sla: 8 },
+      };
 
-<script src="./js/common.js"></script>
-<script>
-  const SERVICES = {
-    SITE: {nome:'Site institucional', preco: 4500, sla: 7},
-    CLOUD:{nome:'Migração para Cloud', preco: 6900, sla: 10},
-    DASH: {nome:'Dashboard de dados', preco: 7900, sla: 12},
-    SEC:  {nome:'Hardening de Segurança', preco: 5200, sla: 8},
-  };
+      const tbody = document.getElementById("tbody");
+      const svcSel = document.getElementById("svc");
+      const price = document.getElementById("price");
+      const sla = document.getElementById("sla");
+      const eta = document.getElementById("eta");
+      const status = document.getElementById("status");
+      const form = document.getElementById("svcForm");
 
-  const tbody = document.getElementById('tbody');
-  const svcSel = document.getElementById('svc');
-  const price = document.getElementById('price');
-  const sla = document.getElementById('sla');
-  const eta = document.getElementById('eta');
-  const status = document.getElementById('status');
-  const form = document.getElementById('svcForm');
+      // Linhas fictícias fixas
+      let rows = [
+        {
+          data: "2025-09-01",
+          num: "1001",
+          serv: "Site institucional",
+          status: "CONCLUÍDO",
+          preco: 4500,
+          previsto: "2025-09-08",
+        },
+        {
+          data: "2025-09-10",
+          num: "1002",
+          serv: "Migração para Cloud",
+          status: "EM ANDAMENTO",
+          preco: 6900,
+          previsto: "2025-09-20",
+        },
+        {
+          data: "2025-10-02",
+          num: "1003",
+          serv: "Dashboard de dados",
+          status: "EM ANDAMENTO",
+          preco: 7900,
+          previsto: "2025-10-14",
+        },
+      ];
 
-  // Linhas fictícias fixas
-  let rows = [
-    {data:'2025-09-01', num:'1001', serv:'Site institucional', status:'CONCLUÍDO', preco:4500, previsto:'2025-09-08'},
-    {data:'2025-09-10', num:'1002', serv:'Migração para Cloud', status:'EM ANDAMENTO', preco:6900, previsto:'2025-09-20'},
-    {data:'2025-10-02', num:'1003', serv:'Dashboard de dados', status:'EM ANDAMENTO', preco:7900, previsto:'2025-10-14'}
-  ];
-
-  function render(){
-    // ordenar por data crescente
-    rows.sort((a,b)=> new Date(a.data)-new Date(b.data));
-    tbody.innerHTML = '';
-    rows.forEach((r,i)=>{
-      const tr = document.createElement('tr');
-      tr.innerHTML = `
+      function render() {
+        // ordenar por data crescente
+        rows.sort((a, b) => new Date(a.data) - new Date(b.data));
+        tbody.innerHTML = "";
+        rows.forEach((r, i) => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
         <td>${fmtDateBR(r.data)}</td>
         <td>${r.num}</td>
         <td>${r.serv}</td>
         <td>${r.status}</td>
-        <td>${r.preco.toLocaleString('pt-BR')}</td>
+        <td>${r.preco.toLocaleString("pt-BR")}</td>
         <td>${fmtDateBR(r.previsto)}</td>
         <td><button type="button" data-i="${i}" class="secondary">Excluir</button></td>
       `;
-      tbody.appendChild(tr);
-    });
-    tbody.querySelectorAll('button').forEach(btn=>{
-      btn.addEventListener('click', (e)=>{
-        const i = +e.currentTarget.dataset.i;
-        rows.splice(i,1);
-        render();
+          tbody.appendChild(tr);
+        });
+        tbody.querySelectorAll("button").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const i = +e.currentTarget.dataset.i;
+            rows.splice(i, 1);
+            render();
+          });
+        });
+      }
+
+      svcSel.addEventListener("change", () => {
+        const v = svcSel.value;
+        if (!v) {
+          price.textContent = "—";
+          sla.textContent = "—";
+          eta.textContent = "—";
+          return;
+        }
+        const s = SERVICES[v];
+        price.textContent = "R$ " + s.preco.toLocaleString("pt-BR");
+        sla.textContent = s.sla + " dias";
+        eta.textContent = fmtDateBR(addDays(new Date(), s.sla));
       });
-    });
-  }
 
-  svcSel.addEventListener('change', ()=>{
-    const v = svcSel.value;
-    if(!v){ price.textContent = '—'; sla.textContent='—'; eta.textContent='—'; return; }
-    const s = SERVICES[v];
-    price.textContent = 'R$ ' + s.preco.toLocaleString('pt-BR');
-    sla.textContent = s.sla + ' dias';
-    eta.textContent = fmtDateBR(addDays(new Date(), s.sla));
-  });
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!svcSel.value) {
+          return alert("Selecione um serviço.");
+        }
+        const s = SERVICES[svcSel.value];
+        const now = new Date();
+        const num = (1000 + Math.floor(Math.random() * 9000)).toString();
+        rows.push({
+          data: fmtDateISO(now),
+          num,
+          serv: s.nome,
+          status: "EM ELABORAÇÃO",
+          preco: s.preco,
+          previsto: fmtDateISO(addDays(now, s.sla)),
+        });
+        render();
+        alert("Solicitação incluída na tabela.");
+        form.reset();
+        price.textContent = sla.textContent = eta.textContent = "—";
+      });
 
-  form.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    if(!svcSel.value){ return alert('Selecione um serviço.'); }
-    const s = SERVICES[svcSel.value];
-    const now = new Date();
-    const num = (1000 + Math.floor(Math.random()*9000)).toString();
-    rows.push({
-      data: fmtDateISO(now),
-      num,
-      serv: s.nome,
-      status: 'EM ELABORAÇÃO',
-      preco: s.preco,
-      previsto: fmtDateISO(addDays(now, s.sla))
-    });
-    render();
-    alert('Solicitação incluída na tabela.');
-    form.reset(); price.textContent = sla.textContent = eta.textContent = '—';
-  });
+      // Verifica sessão para exibir nome/email (valores fixos, mas prioriza sessão)
+      const s = getSession();
+      if (!s) {
+        // Mesmo sem login, a especificação pede labels com valores fixos:
+        document.getElementById("whoami").textContent =
+          "Cliente: Fulano NovaTI · fulano@novati.com.br";
+      }
 
-  // Verifica sessão para exibir nome/email (valores fixos, mas prioriza sessão)
-  const s = getSession();
-  if(!s){
-    // Mesmo sem login, a especificação pede labels com valores fixos:
-    document.getElementById('whoami').textContent = 'Cliente: Fulano NovaTI · fulano@novati.com.br';
-  }
-
-  render();
-</script>
-</body>
+      render();
+    </script>
+  </body>
 </html>

@@ -1,164 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="utf-8">
-  <title>Cadastro de clientes — NovaTI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="./css/main.css" rel="stylesheet">
-  <style>.page{max-width:760px;margin:2rem auto}</style>
-</head>
-<body>
-<header class="header">
-  <div class="container bar">
-    <div class="brand">
-      <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo">
-      <div class="title">NovaTI</div>
-    </div>
-    <nav class="nav">
-      <a href="./index.html">Início</a>
-      <a href="./login.html">Login</a>
-      <a class="link-services" style="display:none" href="./services.html">Solicitar serviços</a>
-    </nav>
-  </div>
-</header>
-
-<main class="container page panel">
-  <h1>Cadastro de clientes</h1>
-
-  <div class="card">
-    <h3>Regra de senha</h3>
-    <p>Permitidos: <code>@ # $ % & * ! ? / \ | - _ + . =</code> — Não permitidos: <code>¨ { } [ ] ´ ` ~ ^ : ; &lt; &gt; , " '</code></p>
-  </div>
-
-  <form id="regForm" novalidate>
-    <div class="grid-2">
-      <div>
-        <label for="email">E-mail (login)</label>
-        <input id="email" type="email" required>
-      </div>
-      <div>
-        <label for="tel">Celular (opcional)</label>
-        <input id="tel" type="tel" placeholder="(81) 9XXXX-XXXX">
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div>
-        <label for="pw1">Senha</label>
-        <input id="pw1" type="password" required>
-      </div>
-      <div>
-        <label for="pw2">Confirmar Senha</label>
-        <input id="pw2" type="password" required>
-      </div>
-    </div>
-
-    <div class="grid-2">
-      <div>
-        <label for="nome">Nome completo</label>
-        <input id="nome" type="text" required>
-      </div>
-      <div>
-        <label for="cpf">CPF</label>
-        <input id="cpf" type="text" inputmode="numeric" placeholder="000.000.000-00" required>
-      </div>
-    </div>
-
-    <div class="grid-3">
-      <div>
-        <label for="nasc">Data de nascimento</label>
-        <input id="nasc" type="date" required>
-      </div>
-      <div>
-        <label>Estado civil</label>
-        <div class="panel" style="padding:.6rem">
-          <label><input type="radio" name="ec" value="solteiro" checked> Solteiro(a)</label>
-          <label><input type="radio" name="ec" value="casado"> Casado(a)</label>
-          <label><input type="radio" name="ec" value="divorciado"> Divorciado(a)</label>
-          <label><input type="radio" name="ec" value="viuvo"> Viúvo(a)</label>
+  <head>
+    <meta charset="utf-8" />
+    <title>Cadastro de clientes — NovaTI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="./css/main.css" rel="stylesheet" />
+    <style>
+      .page {
+        max-width: 760px;
+        margin: 2rem auto;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container bar">
+        <div class="brand">
+          <img src="https://picsum.photos/seed/novati-logo/96/96" alt="Logo" />
+          <div class="title">NovaTI</div>
         </div>
+        <nav class="nav">
+          <a href="./index.html">Início</a>
+          <a href="./login.html">Login</a>
+          <a class="link-services" style="display: none" href="./services.html"
+            >Solicitar serviços</a
+          >
+        </nav>
       </div>
-      <div>
-        <label for="esc">Escolaridade</label>
-        <select id="esc">
-          <option>1º grau incompleto</option>
-          <option>1º grau completo</option>
-          <option selected>2º grau completo</option>
-          <option>Nível superior</option>
-          <option>Pós-graduado</option>
-        </select>
+    </header>
+
+    <main class="container page panel">
+      <h1>Cadastro de clientes</h1>
+
+      <div class="card">
+        <h3>Regra de senha</h3>
+        <p>
+          Permitidos: <code>@ # $ % & * ! ? / \ | - _ + . =</code> — Não
+          permitidos: <code>¨ { } [ ] ´ ` ~ ^ : ; &lt; &gt; , " '</code>
+        </p>
       </div>
-    </div>
 
-    <div id="msg" aria-live="polite" style="min-height:1.2rem;margin:.4rem 0;" class="bad"></div>
+      <form id="regForm" novalidate>
+        <div class="grid-2">
+          <div>
+            <label for="email">E-mail (login)</label>
+            <input id="email" type="email" required />
+          </div>
+          <div>
+            <label for="tel">Celular (opcional)</label>
+            <input id="tel" type="tel" placeholder="(81) 9XXXX-XXXX" />
+          </div>
+        </div>
 
-    <div class="grid-3">
-      <button type="submit">Incluir</button>
-      <button type="button" id="btnClear" class="secondary">Limpar</button>
-      <button type="button" onclick="history.back()" class="secondary">Voltar</button>
-    </div>
-  </form>
-</main>
+        <div class="grid-2">
+          <div>
+            <label for="pw1">Senha</label>
+            <input id="pw1" type="password" required />
+          </div>
+          <div>
+            <label for="pw2">Confirmar Senha</label>
+            <input id="pw2" type="password" required />
+          </div>
+        </div>
 
-<script src="./js/common.js"></script>
-<script>
-  const f = document.getElementById('regForm');
-  const email = document.getElementById('email');
-  const tel = document.getElementById('tel');
-  const pw1 = document.getElementById('pw1');
-  const pw2 = document.getElementById('pw2');
-  const nome = document.getElementById('nome');
-  const cpf = document.getElementById('cpf');
-  const nasc = document.getElementById('nasc');
-  const msg = document.getElementById('msg');
+        <div class="grid-2">
+          <div>
+            <label for="nome">Nome completo</label>
+            <input id="nome" type="text" required />
+          </div>
+          <div>
+            <label for="cpf">CPF</label>
+            <input
+              id="cpf"
+              type="text"
+              inputmode="numeric"
+              placeholder="000.000.000-00"
+              required
+            />
+          </div>
+        </div>
 
-  tel.addEventListener('input', ()=>maskPhone(tel));
-  cpf.addEventListener('input', ()=>maskCPF(cpf));
+        <div class="grid-3">
+          <div>
+            <label for="nasc">Data de nascimento</label>
+            <input id="nasc" type="date" required />
+          </div>
+          <div>
+            <label>Estado civil</label>
+            <div class="panel" style="padding: 0.6rem">
+              <label
+                ><input type="radio" name="ec" value="solteiro" checked />
+                Solteiro(a)</label
+              >
+              <label
+                ><input type="radio" name="ec" value="casado" />
+                Casado(a)</label
+              >
+              <label
+                ><input type="radio" name="ec" value="divorciado" />
+                Divorciado(a)</label
+              >
+              <label
+                ><input type="radio" name="ec" value="viuvo" /> Viúvo(a)</label
+              >
+            </div>
+          </div>
+          <div>
+            <label for="esc">Escolaridade</label>
+            <select id="esc">
+              <option>1º grau incompleto</option>
+              <option>1º grau completo</option>
+              <option selected>2º grau completo</option>
+              <option>Nível superior</option>
+              <option>Pós-graduado</option>
+            </select>
+          </div>
+        </div>
 
-  document.getElementById('btnClear').addEventListener('click', ()=>{
-    f.reset(); email.focus(); setAlert(msg,'','ok');
-  });
+        <div
+          id="msg"
+          aria-live="polite"
+          style="min-height: 1.2rem; margin: 0.4rem 0"
+          class="bad"
+        ></div>
 
-  function nomeValido(n){
-    if(!n) return false;
-    if(/[¨{}[\]´`~^:;<>,"'@#$%&*!?\/\\|_\+\.\=\d]/.test(n)) return false; // sem especiais/numéricos
-    const parts = n.trim().split(/\s+/);
-    return parts.length >= 2 && parts[0].length >= 2;
-  }
+        <div class="grid-3">
+          <button type="submit">Incluir</button>
+          <button type="button" id="btnClear" class="secondary">Limpar</button>
+          <button type="button" onclick="history.back()" class="secondary">
+            Voltar
+          </button>
+        </div>
+      </form>
+    </main>
 
-  function isAdult(iso){
-    const birth = new Date(iso);
-    if(isNaN(+birth)) return false;
-    const today = new Date();
-    let age = today.getFullYear() - birth.getFullYear();
-    const m = today.getMonth() - birth.getMonth();
-    if(m < 0 || (m===0 && today.getDate() < birth.getDate())) age--;
-    return age >= 18;
-  }
+    <script src="./js/common.js"></script>
+    <script>
+      const f = document.getElementById("regForm");
+      const email = document.getElementById("email");
+      const tel = document.getElementById("tel");
+      const pw1 = document.getElementById("pw1");
+      const pw2 = document.getElementById("pw2");
+      const nome = document.getElementById("nome");
+      const cpf = document.getElementById("cpf");
+      const nasc = document.getElementById("nasc");
+      const msg = document.getElementById("msg");
 
-  f.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    if(!email.value) return setAlert(msg,'Preencha o e-mail.','bad');
-    if(!EMAIL_RE.test(email.value)) return setAlert(msg,'E-mail inválido.','bad');
+      tel.addEventListener("input", () => maskPhone(tel));
+      cpf.addEventListener("input", () => maskCPF(cpf));
 
-    if(!pw1.value) return setAlert(msg,'Preencha a senha.','bad');
-    if(!pw2.value) return setAlert(msg,'Confirme a senha.','bad');
-    if(pw1.value!==pw2.value) return setAlert(msg,'Senhas não conferem.','bad');
-    if(!isStrongPassword(pw1.value)) return setAlert(msg,'Senha não atende às regras.','bad');
+      document.getElementById("btnClear").addEventListener("click", () => {
+        f.reset();
+        email.focus();
+        setAlert(msg, "", "ok");
+      });
 
-    if(!nomeValido(nome.value)) return setAlert(msg,'Nome inválido. Use pelo menos nome e sobrenome e sem caracteres especiais.','bad');
+      function nomeValido(n) {
+        if (!n) return false;
+        if (/[¨{}[\]´`~^:;<>,"'@#$%&*!?\/\\|_\+\.\=\d]/.test(n)) return false; // sem especiais/numéricos
+        const parts = n.trim().split(/\s+/);
+        return parts.length >= 2 && parts[0].length >= 2;
+      }
 
-    if(!cpf.value) return setAlert(msg,'Preencha o CPF.','bad');
-    if(!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf.value)) return setAlert(msg,'CPF deve estar na máscara 000.000.000-00.','bad');
-    if(!validarCPF(cpf.value)) return setAlert(msg,'CPF inválido.','bad');
+      function isAdult(iso) {
+        const birth = new Date(iso);
+        if (isNaN(+birth)) return false;
+        const today = new Date();
+        let age = today.getFullYear() - birth.getFullYear();
+        const m = today.getMonth() - birth.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
+        return age >= 18;
+      }
 
-    if(!nasc.value) return setAlert(msg,'Preencha a data de nascimento.','bad');
-    if(!isAdult(nasc.value)) return setAlert(msg,'É preciso ser maior de idade (18+).','bad');
+      f.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (!email.value) return setAlert(msg, "Preencha o e-mail.", "bad");
+        if (!EMAIL_RE.test(email.value))
+          return setAlert(msg, "E-mail inválido.", "bad");
 
-    if(tel.value && !PHONE_BR_RE.test(tel.value)) return setAlert(msg,'Telefone em formato nacional inválido.','bad');
+        if (!pw1.value) return setAlert(msg, "Preencha a senha.", "bad");
+        if (!pw2.value) return setAlert(msg, "Confirme a senha.", "bad");
+        if (pw1.value !== pw2.value)
+          return setAlert(msg, "Senhas não conferem.", "bad");
+        if (!isStrongPassword(pw1.value))
+          return setAlert(msg, "Senha não atende às regras.", "bad");
 
-    alert('Validação realizada com sucesso');
-  });
-</script>
-</body>
+        if (!nomeValido(nome.value))
+          return setAlert(
+            msg,
+            "Nome inválido. Use pelo menos nome e sobrenome e sem caracteres especiais.",
+            "bad"
+          );
+
+        if (!cpf.value) return setAlert(msg, "Preencha o CPF.", "bad");
+        if (!/^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(cpf.value))
+          return setAlert(
+            msg,
+            "CPF deve estar na máscara 000.000.000-00.",
+            "bad"
+          );
+        if (!validarCPF(cpf.value))
+          return setAlert(msg, "CPF inválido.", "bad");
+
+        if (!nasc.value)
+          return setAlert(msg, "Preencha a data de nascimento.", "bad");
+        if (!isAdult(nasc.value))
+          return setAlert(msg, "É preciso ser maior de idade (18+).", "bad");
+
+        if (tel.value && !PHONE_BR_RE.test(tel.value))
+          return setAlert(msg, "Telefone em formato nacional inválido.", "bad");
+
+        alert("Validação realizada com sucesso");
+      });
+    </script>
+  </body>
 </html>
