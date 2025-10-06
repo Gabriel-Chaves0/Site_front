@@ -86,24 +86,13 @@
             <input id="nasc" type="date" required />
           </div>
           <div>
-            <label>Estado civil</label>
-            <div class="panel" style="padding: 0.6rem">
-              <label
-                ><input type="radio" name="ec" value="solteiro" checked />
-                Solteiro(a)</label
-              >
-              <label
-                ><input type="radio" name="ec" value="casado" />
-                Casado(a)</label
-              >
-              <label
-                ><input type="radio" name="ec" value="divorciado" />
-                Divorciado(a)</label
-              >
-              <label
-                ><input type="radio" name="ec" value="viuvo" /> Viúvo(a)</label
-              >
-            </div>
+            <label for="ec">Estado civil</label>
+            <select id="ec">
+              <option value="solteiro" selected>Solteiro(a)</option>
+              <option value="casado">Casado(a)</option>
+              <option value="divorciado">Divorciado(a)</option>
+              <option value="viuvo">Viúvo(a)</option>
+            </select>
           </div>
           <div>
             <label for="esc">Escolaridade</label>
@@ -211,6 +200,9 @@
           return setAlert(msg, "Telefone em formato nacional inválido.", "bad");
 
         alert("Validação realizada com sucesso");
+        f.reset();
+        email.focus();
+        setAlert(msg, "", "ok");
       });
     </script>
   </body>
