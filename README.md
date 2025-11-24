@@ -1,35 +1,29 @@
-# NovaTI — Site de Serviços de TI (HTML/CSS/JS puro)
+# NovaTI — Frontend React (Vite) + Backend FastAPI + SQLite 🚀
 
-Projeto simples em **HTML, CSS e JavaScript** que simula um site de empresa de TI com **cadastro, login, troca de senha** e **solicitação de serviços** (tabela com linhas fixas + inclusão dinâmica).
+Projeto AV2 migrado do AV1 (HTML/CSS/JS puro) para React e FastAPI, mantendo o layout original e os fluxos de cadastro, login, troca de senha e solicitações de serviços.
 
 ## ✅ Principais recursos
-- Layout responsivo (grid/flex) + tabela para organização.
-- **Validações completas** em JS:
-  - E-mail, CPF (máscara + dígitos verificadores), telefone BR (opcional), maioridade (18+).
-  - Senha forte (mín. 6, 1 número, 1 maiúscula, **apenas** caracteres permitidos).
-- **Máscaras**: CPF e telefone.
-- **Sessão** (localStorage) para exibir link condicional “Solicitar serviços”.
-- Página de serviços com **tabela ordenada por data**, exclusão de linhas e cálculo de **preço/SLA/data prevista**.
+- Layout responsivo preservando o visual do AV1.
+- Frontend em React (Vite) com hooks, sem manipulação direta de DOM.
+- Backend em FastAPI + SQLAlchemy + SQLite (tabelas Cliente, Serviço de TI, Solicitação).
+- Endpoints REST para autenticação, troca de senha, cadastro de cliente, cadastro/listagem de serviços e CRUD de solicitações.
+- Integração front-back com respostas `{ ok, data?, error? }`.
 
-## 🗂 Estrutura de pastas
+## 📂 Estrutura de pastas
 ```
-/css
-  main.css
-/js
-  common.js
-index.html
-login.html
-register.html
-change-password.html
-services.html
+frontend/        # React + Vite
+backend/         # FastAPI + SQLAlchemy + SQLite
+legacy_av1/      # Projeto AV1 original (HTML/CSS/JS) como histórico
+projeto_av2.pdf  # Enunciado
 ```
 
-## 📄 Páginas
-- **index.html** — Home (apresentação, galeria, serviços, fundadores e vídeo).
-- **login.html** — Login com validação e criação de sessão.
-- **register.html** — Cadastro com máscaras e validações.
-- **change-password.html** — Troca de senha (mesmas regras do cadastro).
-- **services.html** — Solicitação de serviços (tabela com linhas fixas + inclusão/exclusão).
+## 📄 Páginas (React)
+- **Home** — apresentação e serviços estáticos do AV1.
+- **Login** — validações e chamada a `/auth`.
+- **Cadastro de cliente** — validações e POST `/clientes`.
+- **Troca de senha** — validações e POST `/clientes/trocar-senha`.
+- **Solicitações/Carrinho** — GET `/servicos`, GET/PUT `/solicitacoes/{login}`.
+- **Cadastro de serviço TI** — validação e POST `/servicos`.
 
 ## 🔐 Regras de senha (resumo)
 - Mínimo **6** caracteres, com **1 número**, **1 letra maiúscula** e **1 caractere especial permitido**.  
@@ -37,21 +31,52 @@ services.html
 - **Não permitidos**: `¨ { } [ ] ´ \` ~ ^ : ; < > , " '`
 
 ## ▶️ Como executar
-1. Baixe/clonar o projeto.
-2. Abra o arquivo **`index.html`** no navegador (duplo clique já funciona).
-3. Para testar:
-   - Faça **login** (qualquer e-mail/senha que passem na validação) → o link “Solicitar serviços” aparece.
-   - Em **Cadastro**, teste CPF/telefone/senha/data.
-   - Em **Serviços**, selecione um serviço → veja **preço/SLA/data prevista** → **Incluir** para adicionar na tabela; use **Excluir** por linha.
+1) **Backend**
+```bash
+cd backend
+python -m venv .venv
+.\.venv\Scripts\activate   # Windows
+# deps: via uv (preferido) ou pip
+uv sync                     # se usar uv e uv.lock
+# ou: pip install fastapi "uvicorn[standard]" sqlalchemy python-decouple "pydantic[email]"
+uv run uvicorn main:app --reload --host 0.0.0.0 --port 8000
+```
+- Docs: http://localhost:8000/docs  
+- SQLite criado automaticamente em `backend/app.db`.  
+- CORS liberado para `http://localhost:5173` (ajuste `FRONTEND_ORIGIN` em `app/settings.py` se mudar).
+
+2) **Frontend**
+```bash
+cd frontend
+npm install
+set VITE_API_URL=http://localhost:8000   # PowerShell; ajuste se a API estiver em outra porta/host
+npm run dev
+```
+- Acesse: http://localhost:5173  
+- Build produção: `npm run build` (prévia: `npm run preview`)
+
+## 🔗 Endpoints principais
+- `POST /auth` — login simples.
+- `POST /clientes` — cadastrar cliente.
+- `POST /clientes/trocar-senha` — trocar senha.
+- `GET /clientes` — listar clientes.
+- `DELETE /clientes/{login}` — remover cliente e solicitações.
+- `POST /servicos` — cadastrar serviço (id autoincremento).
+- `GET /servicos` — listar serviços.
+- `GET /solicitacoes/{login}` — listar solicitações do cliente.
+- `PUT /solicitacoes/{login}` — substituir solicitações do cliente.
+
+## 🧪 Fluxo rápido de teste
+1. Suba o backend (`uvicorn main:app --reload --port 8000`).  
+2. Rode o frontend (`npm run dev`).  
+3. No front: cadastrar cliente → logar → carregar serviços/solicitações → adicionar/atualizar solicitações → trocar senha → relogar.  
+4. Opcional: testar direto via `/docs`.
 
 ## 🛠 Tecnologias
-- HTML5, CSS3 e JavaScript puro (sem bibliotecas).
-- Armazenamento local: **localStorage** (simples, apenas para sessão de demonstração).
+- Frontend: React + Vite.
+- Backend: FastAPI + SQLAlchemy.
+- Banco: SQLite (criação automática na primeira subida).
 
 ## 🎯 Personalização rápida
-- **Cores/tema**: editar variáveis no `:root` de `css/main.css`.
-- **Serviços/valores**: ajustar o objeto `SERVICES` em `services.html`.
-
----
-
-Feito com ❤️. Ajusto para sua marca se quiser!
+- Tema/cores: editar variáveis em `frontend/src/styles/main.css`.
+- URL da API: definir `VITE_API_URL` no frontend; `FRONTEND_ORIGIN` no backend.
