@@ -1,14 +1,26 @@
-from typing import AsyncGenerator
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
+from typing import Generator
+from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from app.settings import Settings
+from app.config.base import Base
 
 DATABASE_URL = Settings.DATABASE_URL
 
-engine = create_async_engine(DATABASE_URL, echo=Settings.DEVELOPING)
-async_session = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
+engine = create_engine(
+    DATABASE_URL,
+    echo=Settings.DEVELOPING,
+    connect_args={"check_same_thread": False} if DATABASE_URL.startswith("sqlite") else {},
+)
+SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
 
-# Database session dependency
-async def get_session() -> AsyncGenerator[AsyncSession, None]:
-    async with async_session() as session:
+
+def init_db():
+    Base.metadata.create_all(bind=engine)
+
+
+def get_session() -> Generator:
+    session = SessionLocal()
+    try:
         yield session
+    finally:
+        session.close()
